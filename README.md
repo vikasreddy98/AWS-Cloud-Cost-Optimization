@@ -12,9 +12,9 @@ As cloud environments grow, unused snapshots can accumulate and continue generat
 
 ![Architecture Diagram](architecture/architecture.png)
 
-## Repository Structurie
+## Repository Structure
 
-'''
+```
 AWS-Cloud-Cost-Optimization
 ├── architecture
 │   └── architecture.png
@@ -35,7 +35,7 @@ AWS-Cloud-Cost-Optimization
 │   └── 09-snapshot-deleted.png
 └── src
     └── ebs-state-snapshots.py
-'''
+```
 
 ### Workflow
 

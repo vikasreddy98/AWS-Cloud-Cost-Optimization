@@ -10,7 +10,7 @@ Stale snapshots are snapshots whose associated EBS volumes are no longer attache
 
 # Architecture
 
-[INSERT SCREENSHOT - architecture-diagram.png]
+![Architecture Diagram](architecture/architecture.png)
 
 ---
 
@@ -28,7 +28,7 @@ Configuration:
 
 Launch the instance.
 
-[INSERT SCREENSHOT - 01-ec2-instance.png]
+![EC2 Instance](screenshots/01-ec2-instance.png)
 
 ---
 
@@ -42,7 +42,7 @@ EC2 Dashboard → Elastic Block Store → Volumes
 
 Verify the attached volume.
 
-[INSERT SCREENSHOT - 02-ebs-volume.png]
+![EBS Volume](screenshots/02-ebs-volume.png)
 
 ---
 
@@ -54,7 +54,7 @@ EC2 Dashboard → Snapshots
 
 Create a snapshot from the attached volume.
 
-[INSERT SCREENSHOT - 03-ebs-snapshot.png]
+![Snapshot](screenshots/03-snapshot-created.png)
 
 ---
 
@@ -72,7 +72,7 @@ Configuration:
 
 Create the function.
 
-[INSERT SCREENSHOT - 04-lambda-created.png]
+![Lambda Function](screenshots/04-lambda-function.png)
 
 ---
 
@@ -82,7 +82,7 @@ Paste the Lambda code into the function editor.
 
 Deploy the function.
 
-[INSERT SCREENSHOT - 05-lambda-code.png]
+![Lambda Code](screenshots/05-lambda-code.png)
 
 ---
 
@@ -95,8 +95,6 @@ The first execution failed because Lambda exceeded the default execution timeout
 Error:
 
 Task timed out after 3.00 seconds
-
-[INSERT SCREENSHOT - 06-timeout-error.png]
 
 ---
 
@@ -112,7 +110,6 @@ Update timeout from:
 
 Save the configuration.
 
-[INSERT SCREENSHOT - 07-timeout-config.png]
 
 ---
 
@@ -143,7 +140,6 @@ Create a custom policy with:
 ```
 Attach the policy.
 
-[INSERT SCREENSHOT - 08-iam-policy.png]
 
 ---
 
@@ -156,8 +152,6 @@ The next execution produced an authorization error.
 ```text
 UnauthorizedOperation when calling DescribeInstances
 ```
-
-![Authorization Error](screenshots/09-unauthorized-error.png)
 
 ### Root Cause
 
@@ -180,7 +174,6 @@ Added the following permissions to the IAM policy:
 
 Updated the IAM policy and attached it to the Lambda execution role.
 
-![Updated IAM Policy](screenshots/10-updated-policy.png)
 
 ---
 
@@ -190,7 +183,7 @@ Execute the Lambda function again.
 
 The function successfully scanned EBS snapshots and EC2 resources without any authorization errors.
 
-![Successful Lambda Execution](screenshots/11-cloudwatch-logs.png)
+![Successful Lambda Execution](screenshots/08-lambda-test-success.png)
 
 ---
 
@@ -204,8 +197,6 @@ When the instance is terminated:
 - The snapshot remains in the account.
 - This creates a stale snapshot scenario.
 
-![Stale Snapshot Before Cleanup](screenshots/12-stale-snapshot-before.png)
-
 ---
 
 # Step 12 - Execute Cleanup
@@ -218,7 +209,7 @@ Run the Lambda function again.
 - Associated volume not found
 - Snapshot deleted successfully
 
-![Snapshot Deleted Successfully](screenshots/13-snapshot-deleted.png)
+![Snapshot Deleted Successfully](screenshots/09-snapshot-deleted.png)
 
 ---
 
@@ -231,8 +222,6 @@ Delete all resources created for this project:
 - Lambda Function
 
 Finally, verify that all project resources have been removed from the AWS account.
-
-![Cleanup Complete](screenshots/14-cleanup-complete.png)
 
 # Project Validation
 
