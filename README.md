@@ -44,7 +44,6 @@ AWS-Cloud-Cost-Optimization
 3. Lambda checks whether each snapshot's volume is associated with any active EC2 instance.
 4. Snapshots associated with deleted volumes are identified as stale.
 5. Stale snapshots are deleted.
-6. Actions are logged in Amazon CloudWatch.
 
 ---
 
@@ -54,7 +53,6 @@ AWS-Cloud-Cost-Optimization
 - Amazon EC2
 - Amazon EBS
 - AWS IAM
-- Amazon CloudWatch
 - Boto3 (AWS SDK for Python)
 
 ---
@@ -65,7 +63,6 @@ AWS-Cloud-Cost-Optimization
 - Python Automation
 - Boto3 SDK
 - IAM Policy Configuration
-- CloudWatch Logging
 - Cost Optimization Strategies
 - Troubleshooting AWS Permissions
 - Infrastructure Automation
